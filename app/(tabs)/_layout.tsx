@@ -47,7 +47,7 @@ export default function TabLayout() {
           ),
           headerLeft: () => (
             <Image
-              source={{ uri: 'https://i.imgur.com/TKNiHQP.png' }} // Replace 'your-image-url' with the actual URL of your image
+              source={{ uri: 'https://i.imgur.com/nPUo6Y3.jpg' }} 
               style={{
                 width: 40, 
                 height: 40, 
@@ -60,9 +60,9 @@ export default function TabLayout() {
         
       />
       <Tabs.Screen
-        name="profile"
+        name="account"
         options={{
-          title: 'profile',
+          title: 'Account',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
