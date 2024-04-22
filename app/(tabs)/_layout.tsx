@@ -49,9 +49,9 @@ export default function TabLayout() {
             <Image
               source={{ uri: 'https://i.imgur.com/TKNiHQP.png' }} // Replace 'your-image-url' with the actual URL of your image
               style={{
-                width: 40, // Set the width as needed
-                height: 40, // Set the height as needed
-                borderRadius: 20, // Half of width/height to make it fully rounded
+                width: 40, 
+                height: 40, 
+                borderRadius: 20, 
                 marginLeft: 15,
               }}
             />
