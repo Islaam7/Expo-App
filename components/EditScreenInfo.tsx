@@ -15,7 +15,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.helpLink}
           href="https://www.facebook.com/">
           <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            External Link!
+            Facebook!
           </Text>
         </ExternalLink>
       </View>

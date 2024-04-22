@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, TextInput, TouchableOpacity, Text } from 'react-native';
+import { Platform, StyleSheet, TextInput, TouchableOpacity, Text, Image } from 'react-native';
 import React from 'react';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { View } from '@/components/Themed';
 
 export default function ModalScreen() {
@@ -11,21 +9,23 @@ export default function ModalScreen() {
 
   const handleLogin = () => {
     console.log('Login credentials:', username, password);
-    // Add your login logic here
   };
 
   return (
     <View style={styles.container}>
-      <EditScreenInfo path="/app/modal.tsx" />
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-
+      {/* <Image
+        style={styles.logo}
+        source={require('@/assets/facebook-logo.png')}
+      /> */}
       <View style={styles.loginContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
+          placeholder="Email or phone"
           placeholderTextColor="#888"
           onChangeText={setUsername}
           value={username}
+          keyboardType="email-address"
         />
         <TextInput
           style={styles.input}
@@ -46,10 +46,16 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFFFF',
+    justifyContent: 'center',
+  },
+  logo: {
+    alignSelf: 'center',
+    height: 100,
+    width: 100,
+    marginBottom: 20,
   },
   loginContainer: {
-    marginTop: 120,
     padding: 20,
     alignItems: 'center',
   },
@@ -57,8 +63,8 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: '#DDD',
     borderWidth: 1,
-    borderRadius: 25,
-    width: '80%',
+    borderRadius: 5,
+    width: '90%',
     paddingHorizontal: 15,
     fontSize: 16,
     marginVertical: 10,
@@ -66,15 +72,14 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    backgroundColor: '#5C6BC0',
+    backgroundColor: '#1877F2',
     paddingVertical: 15,
     paddingHorizontal: 35,
-    borderRadius: 25,
+    borderRadius: 5,
   },
   buttonText: {
     color: '#FFF',
     fontSize: 18,
     fontWeight: '600',
   },
-  // ... (rest of your styles)
 });
