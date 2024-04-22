@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Pressable,Image } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -45,7 +45,19 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
+          headerLeft: () => (
+            <Image
+              source={{ uri: 'https://i.imgur.com/TKNiHQP.png' }} // Replace 'your-image-url' with the actual URL of your image
+              style={{
+                width: 40, // Set the width as needed
+                height: 40, // Set the height as needed
+                borderRadius: 20, // Half of width/height to make it fully rounded
+                marginLeft: 15,
+              }}
+            />
+          ),
         }}
+        
       />
       <Tabs.Screen
         name="profile"
