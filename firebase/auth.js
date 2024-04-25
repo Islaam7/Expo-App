@@ -26,4 +26,5 @@ async function login(email, password) {
   await signInWithEmailAndPassword(auth, email, password);
 }
 
+
 export { register, login };     

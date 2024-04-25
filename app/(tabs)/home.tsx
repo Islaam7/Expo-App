@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Slider from "../slider"
+import Slider from "../category list"
 // import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
@@ -7,8 +7,6 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <Slider/>
-
-      {/* <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
     </View>
   );
 }
