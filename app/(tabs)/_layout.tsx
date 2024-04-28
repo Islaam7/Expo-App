@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable,Image } from 'react-native';
+import { Pressable } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -32,7 +32,7 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href="/account/login" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
@@ -45,24 +45,13 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
-          headerLeft: () => (
-            <Image
-              source={{ uri: 'https://i.imgur.com/nPUo6Y3.jpg' }} 
-              style={{
-                width: 40, 
-                height: 40, 
-                borderRadius: 20, 
-                marginLeft: 15,
-              }}
-            />
-          ),
         }}
-        
       />
+      
       <Tabs.Screen
         name="account"
         options={{
-          title: 'Account',
+          title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
