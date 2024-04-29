@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { sendResetEmail } from "../firebase/auth";
+import Icoon from 'react-native-vector-icons/FontAwesome';
 
 const Forgetpassword = () => {
   const [email, setEmail] = useState("");
@@ -47,6 +48,11 @@ const Forgetpassword = () => {
       <TouchableOpacity onPress={()=>router.replace("/account/login")}>
         <Text style={styles.link}>Login</Text>
       </TouchableOpacity>
+
+
+      <TouchableOpacity style={styles.homeButton} onPress={() =>router.replace("/(tabs)")} styyle={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Icoon name="home" size={35} color="#000"  />
+      </TouchableOpacity>
       
       {error.code && <Text style={styles.error}>{error.code}</Text>}
     </View>
@@ -77,7 +83,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '80%',
-    backgroundColor: '#007bff', // Updated color
+    backgroundColor: '#007bff', 
     padding: 15,
     borderRadius: 5,
     alignItems: 'center',
@@ -88,11 +94,17 @@ const styles = StyleSheet.create({
   },
   link: {
     marginTop: 10,
-    color: '#007bff', // Updated color
+    color: '#007bff', 
   },
   error: {
     marginTop: 10,
     color: 'red',
+  },
+  homeButton: {
+    position: 'absolute',
+    top: 10, 
+    left: 430,
+    zIndex: 10, 
   },
 });
 

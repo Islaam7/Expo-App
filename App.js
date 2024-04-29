@@ -3,9 +3,8 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-// import Users from "./components/Users";
-import TabOneScreen from "../Guri/app/(tabs)/home"
-
+import TabOneScreen from "../Guri/app/(tabs)/index"
+// import App from "./ActivityIndicator/activity";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>

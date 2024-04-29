@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { login } from "../firebase/auth";
+import Icoon from 'react-native-vector-icons/FontAwesome';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -55,9 +56,9 @@ const Login = () => {
         <Text style={styles.link}>Forgot Password</Text>
       </TouchableOpacity>
 
-      {/* <TouchableOpacity onPress={() => router.replace("/account/indexx")}>
-        <Text style={styles.link}>index</Text>
-      </TouchableOpacity> */}
+      <TouchableOpacity style={styles.homeButton} onPress={() =>router.replace("/(tabs)")} styyle={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Icoon name="home" size={35} color="#000"  />
+      </TouchableOpacity>
 
       {error.code && <Text style={styles.error}>{error.code}</Text>}
     </View>
@@ -104,6 +105,12 @@ const styles = StyleSheet.create({
   error: {
     marginTop: 10,
     color: 'red',
+  },
+  homeButton: {
+    position: 'absolute',
+    top: 10, 
+    left: 430,
+    zIndex: 10, 
   },
 });
 

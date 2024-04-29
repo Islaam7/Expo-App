@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { router } from "expo-router";
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../firebase/Config'; // Ensure you have the correct path to your Config file
+import { db } from '../firebase/Config'; 
 import { auth } from '../firebase/Config';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import Icoon from 'react-native-vector-icons/FontAwesome';
 
 
 const Register = () => {
-  // State hooks for user input and messages
   const [email, setEmail] = useState('');
   const [Id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ const Register = () => {
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // New state for success message
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handlePress = async () => {
     if (email === '' || password === '') {
@@ -25,7 +25,6 @@ const Register = () => {
     }
   
     try {
-      // Authenticate the user and create a new user document in the 'users' collection
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User created with ID: ', userCredential.user.uid);
   
@@ -35,15 +34,13 @@ const Register = () => {
         gender,
         email,
         Id,
-        // You can include additional fields as needed
       });
       console.log('Document written with ID: ', docRef.id);
-      setSuccessMessage('Register Successful!'); // Set success message
-      // Navigate to the login page or perform other actions
+      setSuccessMessage('Register Successful!'); 
     } catch (error) {
       console.error('Error adding document: ', error);
       setError({ code: error.message });
-      setSuccessMessage(''); // Clear success message in case of error
+      setSuccessMessage(''); 
     }
   };
   
@@ -102,6 +99,10 @@ const Register = () => {
         <Text style={styles.link}>Forgot Password</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.homeButton} onPress={() =>router.replace("/(tabs)")} styyle={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Icoon name="home" size={35} color="#000"  />
+      </TouchableOpacity>
+
 
       {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
       {error.code && <Text style={styles.error}>{error.code}</Text>}
@@ -153,7 +154,13 @@ const styles = StyleSheet.create({
   link: {
     marginTop: 10,
     color: '#007bff',
-  }
+  },
+  homeButton: {
+    position: 'absolute',
+    top: 10, 
+    left: 430,
+    zIndex: 10, 
+  },
 });
 
 export default Register;
